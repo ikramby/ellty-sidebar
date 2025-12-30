@@ -12,12 +12,13 @@ This project replicates a Figma design of a sidebar navigation component with pi
 
 ## 🎯 Features
 
-- **Pixel-Perfect Design**: Exact replication of Figma design with proper spacing, typography, and colors
-- **Interactive Navigation**: Clickable items with visual feedback and active states
-- **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile devices
-- **Keyboard Navigation**: Use arrow keys to navigate through items
-- **Touch Support**: Swipe gestures for mobile devices
-- **Clean Architecture**: Separated HTML, CSS, and JavaScript for maintainability
+- **React 18** with functional components and hooks
+- **Material UI 5** for modern, accessible components
+- **Pixel-Perfect Design**: Exact Figma replication
+- **Interactive Navigation**: Stateful sidebar items
+- **Fully Responsive**: Mobile-first design
+- **Type Safety**: PropTypes for component validation
+- **Modern Styling**: CSS-in-JS with Emotion
 
 ## 📁 Project Structure
 ellty-sidebar/
