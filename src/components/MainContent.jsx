@@ -3,13 +3,17 @@ import {
   Box,
   Typography,
   Paper,
-  Button,
   Container,
   Stack,
   Card,
   CardContent,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Link,
 } from '@mui/material';
-import { GitHub, CheckCircle, Devices, DesignServices } from '@mui/icons-material';
+import { CheckCircle, Mouse, TouchApp, Layers, GitHub } from '@mui/icons-material';
 
 const MainContent = () => {
   return (
@@ -23,18 +27,32 @@ const MainContent = () => {
       }}
     >
       <Container maxWidth="lg">
-        {/* Header */}
+        {/* Header avec lien GitHub */}
         <Box sx={{ textAlign: 'center', mb: 5 }}>
-          <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, color: '#1a1a1a' }}>
-            Ellty Assignment1
-          </Typography>
+          <Link
+            href="https://github.com/ikramby/ellty-sidebar"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'none',
+              },
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
+              <GitHub sx={{ fontSize: 40, color: '#1a1a1a' }} />
+              <Typography variant="h3" sx={{ fontWeight: 700, color: '#1a1a1a', '&:hover': { color: '#1976d2' } }}>
+                Github EllTy Sidebar
+              </Typography>
+            </Box>
+          </Link>
           <Typography variant="h6" sx={{ color: '#666', maxWidth: 800, mx: 'auto', lineHeight: 1.6 }}>
-            This is a pixel-perfect implementation of the sidebar navigation component from the provided Figma design.
-            The component is fully responsive and interactive.
+            Implementation of page selection logic and popup window according to the Figma specifications.
           </Typography>
         </Box>
 
-        {/* Preview Card */}
+        {/* Instructions Card */}
         <Paper
           elevation={0}
           sx={{
@@ -45,82 +63,68 @@ const MainContent = () => {
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
           }}
         >
-          <Typography variant="h4" sx={{ fontWeight: 700, mb: 2, color: '#1a1a1a' }}>
-            Component Preview
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 3, color: '#1a1a1a' }}>
+            How to use the features
           </Typography>
-          <Typography variant="body1" sx={{ color: '#666', mb: 4, lineHeight: 1.6 }}>
-            The sidebar navigation on the left replicates the Figma design with accurate spacing, typography, and interactive states.
-          </Typography>
+          
+          <List>
+            <ListItem>
+              <ListItemIcon><CheckCircle color="primary" /></ListItemIcon>
+              <ListItemText 
+                primary="Check statut" 
+                secondary="Check a box to the right of an item to change its status to 'Done'." 
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Layers color="primary" /></ListItemIcon>
+              <ListItemText 
+                primary="Select 'All pages'" 
+                secondary="Click on any 'All pages' item to open the detailed selection popup." 
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><TouchApp color="primary" /></ListItemIcon>
+              <ListItemText 
+                primary="Popup" 
+                secondary="In the popup, you can individually select pages 1 to 4 or use 'All pages' to select all." 
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Mouse color="primary" /></ListItemIcon>
+              <ListItemText 
+                primary="Button Done" 
+                secondary="Click the yellow 'Done' button in the popup to confirm your choices and close the window." 
+              />
+            </ListItem>
+          </List>
 
-          {/* Feature Cards */}
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} sx={{ mb: 4 }}>
-            <Card sx={{ flex: 1, borderRadius: 3 }}>
+          {/* Feature Summary */}
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} sx={{ mt: 4 }}>
+            <Card sx={{ flex: 1, borderRadius: 3, backgroundColor: '#fff9e6' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <CheckCircle sx={{ fontSize: 48, color: '#6a11cb', mb: 2 }} />
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Interactive
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: '#f57c00' }}>
+                  State logic
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  All navigation items are clickable with visual feedback
+                  The status changes dynamically between the page name and 'Done' when clicking the checkbox.
                 </Typography>
               </CardContent>
             </Card>
 
-            <Card sx={{ flex: 1, borderRadius: 3 }}>
+            <Card sx={{ flex: 1, borderRadius: 3, backgroundColor: '#e3f2fd' }}>
               <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <Devices sx={{ fontSize: 48, color: '#2575fc', mb: 2 }} />
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Responsive
+                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1, color: '#1976d2' }}>
+                  Popup Component
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Works perfectly on mobile, tablet, and desktop
-                </Typography>
-              </CardContent>
-            </Card>
-
-            <Card sx={{ flex: 1, borderRadius: 3 }}>
-              <CardContent sx={{ textAlign: 'center', p: 3 }}>
-                <DesignServices sx={{ fontSize: 48, color: '#2e7d32', mb: 2 }} />
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Pixel-Perfect
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Exact match to Figma design specifications
+                  A Material UI styled modal window to match your Figma design exactly.
                 </Typography>
               </CardContent>
             </Card>
           </Stack>
-
-          <Typography variant="body1" sx={{ color: '#666', mb: 3, textAlign: 'center' }}>
-            Click on any navigation item to see the interactive state change.
-          </Typography>
-
-          <Box sx={{ textAlign: 'center' }}>
-            <Button
-              variant="contained"
-              startIcon={<GitHub />}
-              href="https://github.com"
-              target="_blank"
-              sx={{
-                backgroundColor: '#24292e',
-                color: 'white',
-                px: 4,
-                py: 1.5,
-                borderRadius: 2,
-                fontWeight: 600,
-                textTransform: 'none',
-                fontSize: '1rem',
-                '&:hover': {
-                  backgroundColor: '#444d56',
-                },
-              }}
-            >
-              View on GitHub
-            </Button>
-          </Box>
         </Paper>
 
-        {/* Footer */}
+        {/* Footer avec lien */}
         <Typography
           variant="body2"
           sx={{
@@ -129,7 +133,22 @@ const MainContent = () => {
             mt: 3,
           }}
         >
-          Designed to match Figma specifications | Ready for GitHub Pages deployment
+          Powered By{' '}
+          <Link
+            href="https://ikramby.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: '#1976d2',
+              textDecoration: 'none',
+              fontWeight: 600,
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            }}
+          >
+            Ikram Ben Yahia
+          </Link>
         </Typography>
       </Container>
     </Box>
